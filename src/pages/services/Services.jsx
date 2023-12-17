@@ -130,14 +130,14 @@ function Services() {
             data.map((item) => {
               return (
                 <li
-                  className={korxonaId == item.id ? "item active" : "item" }
+                  className={korxonaId == item.id ? "item active" : "item"}
                   onClick={() => {
                     setKorxonaId(item.id);
                     setisLogin(false);
                     setError(false);
                     setKorxonaDocs();
-                    setLogin("")
-                    setPassword("")
+                    setLogin("");
+                    setPassword("");
                   }}
                 >
                   {item.name}
@@ -157,6 +157,7 @@ function Services() {
             <form onSubmit={handleSubmit} action="">
               <label htmlFor="login">Login:</label>
               <input
+                value={login}
                 onChange={(e) => {
                   setLogin(e.target.value);
                 }}
@@ -166,6 +167,7 @@ function Services() {
               />
               <label htmlFor="password">Password:</label>
               <input
+                value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
@@ -178,15 +180,25 @@ function Services() {
           )}
           {korxonaDocs && (
             <a
-            target="_blank"
-              href={
-                `https://teknikinnavatsion.pythonanywhere.com/${korxonaDocs.file}`
-              }
+              className="doc"
+              target="_blank"
+              href={`https://teknikinnavatsion.pythonanywhere.com/${korxonaDocs.file}`}
             >
-              {korxonaDocs.name}
+              <h2>Открыть документ</h2>
+
             </a>
           )}
-          {error && <h2>{error}</h2>}
+          {error && (
+            <h2
+              style={{
+                color: "white",
+                backgroundColor: "black",
+                padding: "4px 20px",
+              }}
+            >
+              {error}
+            </h2>
+          )}
         </div>
       </div>
     </div>
