@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import img1 from "../../../public/imgs/service1.jpg"
-import img2 from "../../../public/imgs/service2.jpg"
-import img3 from "../../../public/imgs/service3.jpg"
-import img4 from "../../../public/imgs/service4.jpg"
-import img5 from "../../../public/imgs/service5.jpg"
-import img6 from "../../../public/imgs/service6.jpg"
-import img7 from "../../../public/imgs/service7.jpg";
-import img8 from "../../../public/imgs/service8.jpg";
 
 function Home() {
   const [data, setData] = useState([])
+  const [about, setAbout] = useState([]);
   const getData = () => {
     var requestOptions = {
       method: "GET",
@@ -30,18 +23,35 @@ function Home() {
         setData(JSON.parse(result).data);
        })
       .catch((error) => console.log("error", error));
+
+      fetch(
+        "https://teknikinnavatsion.pythonanywhere.com/korxona/biz_haqimizda/",
+        requestOptions
+      )
+        .then((response) => response.text())
+        .then((result) => {
+          setAbout(JSON.parse(result).data);
+        })
+        .catch((error) => console.log("error", error));
+
+
   };
 
   useEffect(() => {
     getData();
   }, []);
+
+  
+  
+
+
   return (
     <div className="home">
       <div className="container">
         <div className="serviceCard">
-          {data?.map((item)=>{
+          {data?.map((item) => {
             return (
-              <Link to={"/services/"+item.id} className="card">
+              <Link to={"/services/" + item.id} className="card">
                 <img
                   src={
                     "https://teknikinnavatsion.pythonanywhere.com/" + item.file
@@ -54,11 +64,22 @@ function Home() {
               </Link>
             );
           })}
-          
         </div>
         <div className="about">
           <h1>о нас</h1>
-          <div className="info"></div>
+          <div className="info">
+            {about && (
+              <iframe
+                width="100%"
+                height="100%"
+                src={about[0].video_url}
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            )}
+          </div>
         </div>
       </div>
     </div>
