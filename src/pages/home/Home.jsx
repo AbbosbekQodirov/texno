@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import img1 from "../../assets/imgs/service1.jpg"
 
 function Home() {
   return (
@@ -8,7 +9,7 @@ function Home() {
       <div className="container">
         <div className="serviceCard">
           <Link to={"/services/page"} className="card">
-            <img src="../assets/imgs/service1.jpg" alt="" />
+            <img src={img1} alt="" />
             <div>
               <h2>Резервуар вертикальный стальной РВС</h2>
             </div>
@@ -60,9 +61,7 @@ function Home() {
         </div>
         <div className="about">
           <h1>о нас</h1>
-          <div className="info">
-
-          </div>
+          <div className="info"></div>
         </div>
       </div>
     </div>
