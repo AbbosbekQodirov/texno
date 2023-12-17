@@ -43,7 +43,7 @@ function Home() {
 
   
   
-
+console.log(about);
 
   return (
     <div className="home">
@@ -68,7 +68,7 @@ function Home() {
         <div className="about">
           <h1>о нас</h1>
           <div className="info">
-            {about && (
+            {about.length>0 && (
               <iframe
                 width="100%"
                 height="100%"
