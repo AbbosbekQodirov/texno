@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import Loading from "../../components/loading/Loading";
 
 function Home() {
   const [data, setData] = useState([])
   const [about, setAbout] = useState([]);
+  const [loader, setLoader] = useState(false);
   const getData = () => {
+    setLoader(true)
     var requestOptions = {
       method: "GET",
       headers: {
@@ -21,8 +24,12 @@ function Home() {
       .then((response) => response.text())
       .then((result) => {
         setData(JSON.parse(result).data);
+        setLoader(false)
        })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+         setLoader(false);
+      });
 
       fetch(
         "https://teknikinnavatsion.pythonanywhere.com/korxona/biz_haqimizda/",
@@ -42,11 +49,12 @@ function Home() {
   }, []);
 
   
-  
-console.log(about);
+
 
   return (
     <div className="home">
+      {loader && <Loading />}
+
       <div className="container">
         <div className="serviceCard">
           {data?.map((item) => {
@@ -68,7 +76,7 @@ console.log(about);
         <div className="about">
           <h1>о нас</h1>
           <div className="info">
-            {about.length>0 && (
+            {about.length > 0 && (
               <iframe
                 width="100%"
                 height="100%"

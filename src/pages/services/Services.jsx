@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Services.css";
 import { useParams } from "react-router-dom";
+import Loading from "../../components/loading/Loading";
 
 function Services() {
   const { id } = useParams();
@@ -9,6 +10,7 @@ function Services() {
 
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+   const [loader, setLoader] = useState(false);
 
 
   const [token, setToken] = useState("");
@@ -21,6 +23,7 @@ function Services() {
 
 
   const getData = () => {
+    setLoader(true)
     var requestOptions = {
       method: "GET",
       headers: {
@@ -37,8 +40,12 @@ function Services() {
       .then((response) => response.text())
       .then((result) => {
         setData(JSON.parse(result).data);
+        setLoader(false);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+         setLoader(false);
+        console.log("error", error);
+      });
   };
 
   useEffect(() => {
@@ -47,7 +54,7 @@ function Services() {
 
 
   const getDocs = (token) => {
-    console.log(token);
+     setLoader(true);
    var requestOptions = {
      method: "GET",
      headers: {
@@ -65,12 +72,17 @@ function Services() {
      .then((result) => {
         if(JSON.parse(result).message){
             setError(JSON.parse(result).message)
+               setLoader(false);
         }
-        console.log(JSON.parse(result).data);
+        
        setKorxonaDocs(JSON.parse(result).data);
+        setLoader(false);
        // setCarCategory(JSON.parse(result).data);
      })
-     .catch((error) => console.log("error", error));
+     .catch((error) => {
+      console.log("error", error);
+         setLoader(false);
+     });
   };
 
   const apiUrl =
@@ -120,10 +132,11 @@ function Services() {
   }
 
 
-  console.log(korxonaId);
+
 
   return (
     <div className="services">
+      {loader && <Loading />}
       <div className="services_left">
         <ul>
           {data.length ? (
@@ -185,7 +198,6 @@ function Services() {
               href={`https://teknikinnavatsion.pythonanywhere.com/${korxonaDocs.file}`}
             >
               <h2>Открыть документ</h2>
-
             </a>
           )}
           {error && (
