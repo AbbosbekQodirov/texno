@@ -197,7 +197,7 @@ function Services() {
             <a
               className="doc"
               target="_blank"
-              href={`https://teknikinnavatsion.pythonanywhere.com/${korxonaDocs.file}`}
+              href={`https://teknikinnavatsion.pythonanywhere.com${korxonaDocs.file}`}
             >
               <h2>Открыть документ</h2>
             </a>
