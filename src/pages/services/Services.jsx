@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Services.css";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/loading/Loading";
+import { BsBuildings } from "react-icons/bs";
 
 function Services() {
   const { id } = useParams();
@@ -153,6 +154,7 @@ function Services() {
                     setPassword("");
                   }}
                 >
+                <BsBuildings/>
                   {item.name}
                 </li>
               );

@@ -1,5 +1,6 @@
 nav{
-    background-color: black;
+    /* background-color: black; */
+    background-color: rgb(54, 54, 54);
     color: white;
     font-weight: 500;
 }

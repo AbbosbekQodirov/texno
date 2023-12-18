@@ -1,14 +1,13 @@
-.services{
-    border: 2px solid black;
-}
+
 
 .services {
     display: flex;
 }
 .services_left{
-    width: 350px;
-    height: calc(100vh - 74px);
-    background-color: black;
+    width: 370px;
+    height: calc(100vh - 72px);
+    background-color: rgb(54, 54, 54);
+    padding: 8px;
 }
 
 .services_left li{
@@ -16,8 +15,12 @@
     font-size: 26px;
     padding: 8px 15px;
     cursor: pointer;
-    border: 2px solid black;
-    margin-bottom: 4px;
+    border: 2px solid white;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
     
 }
 .services_left a{
@@ -25,14 +28,14 @@
 }
 
 .services_left li:hover{
-    background-color: white;
-    color: black;
+    background-color: rgb(0, 89, 255);
+        color: white;
 
 }
 
 .services_right{
     width: 100%;
-    height: calc(100vh - 74px);
+    height: calc(100vh - 72px);
     background-color: rgba(125, 123, 123, 0.722);
     padding: 40px;
     display: flex;
@@ -89,8 +92,8 @@
 }
 
 .item.active{
-    background-color: white;
-        color: black;
+    background-color: rgb(0, 89, 255);
+        color: white;
 }
 .doc{
     width: 300px;
