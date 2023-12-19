@@ -88,6 +88,9 @@ function Home() {
               );
             })}
           </div>
+          <h1>
+            <a target="_blank" href="https://www.youtube.com/@SUBYEKTIV">Hammasini ko'rish</a>
+          </h1>
         </div>
       </div>
     </div>
