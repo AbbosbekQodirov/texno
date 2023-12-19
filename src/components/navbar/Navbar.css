@@ -18,6 +18,7 @@ ul{
     display: flex;
     gap: 30px;
     font-size: 22px;
+    align-items: center;
 }
 
 .links a{
@@ -27,8 +28,17 @@ ul{
     transition: all .3s ease;
 }
 
+.links li{
+    transition: all .3s ease;
+}
+
+.links li:hover{
+    transform: scale(1.1);
+}
+
 .links a:hover{
     color: rgb(39, 115, 255);
+    
 }
 
 .logo a{
@@ -36,3 +46,7 @@ ul{
     color: white;
 }
 
+.links a svg{
+    font-size: 24px;
+    display: flex;  
+}
