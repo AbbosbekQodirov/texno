@@ -46,7 +46,6 @@ function Home() {
     getData();
   }, []);
 
-  console.log(about);
 
   return (
     <div className="home">

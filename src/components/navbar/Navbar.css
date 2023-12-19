@@ -16,16 +16,23 @@ ul{
 }
 .links{
     display: flex;
-    gap: 40px;
-    font-size: 20px;
+    gap: 30px;
+    font-size: 22px;
 }
 
 .links a{
     color: white;
     font-weight: 300;
     letter-spacing: 1px;
+    transition: all .3s ease;
 }
+
+.links a:hover{
+    color: rgb(39, 115, 255);
+}
+
 .logo a{
     text-decoration: none;
     color: white;
 }
+
