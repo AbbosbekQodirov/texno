@@ -154,7 +154,7 @@ function Services() {
                     setPassword("");
                   }}
                 >
-                <BsBuildings/>
+                  <BsBuildings />
                   {item.name}
                 </li>
               );
@@ -197,7 +197,7 @@ function Services() {
             <a
               className="doc"
               target="_blank"
-              href={`https://teknikinnavatsion.pythonanywhere.com${korxonaDocs.file}`}
+              href={`https://apis.teknikinnavatsion.uz/${korxonaDocs.file}`}
             >
               <h2>Открыть документ</h2>
             </a>
