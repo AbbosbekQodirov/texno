@@ -34,7 +34,7 @@ function Services() {
     };
 
     fetch(
-      "https://teknikinnavatsion.pythonanywhere.com/korxona/all/?category_id=" +
+      "https://apis.teknikinnavatsion.uz/korxona/all/?category_id=" +
         id,
       requestOptions
     )
@@ -66,7 +66,7 @@ function Services() {
    };
 
    fetch(
-     `https://teknikinnavatsion.pythonanywhere.com/korxona/get/?korxona_id=${korxonaId}`,
+     `https://apis.teknikinnavatsion.uz/korxona/get/?korxona_id=${korxonaId}`,
      requestOptions
    )
      .then((response) => response.text())
@@ -87,7 +87,7 @@ function Services() {
   };
 
   const apiUrl =
-    "https://teknikinnavatsion.pythonanywhere.com/user/korxona_token/";
+    "https://apis.teknikinnavatsion.uz/user/korxona_token/";
 
   const handleSubmit = (e)=>{
     e.preventDefault();

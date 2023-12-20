@@ -18,7 +18,7 @@ function Home() {
     };
 
     fetch(
-      "https://teknikinnavatsion.pythonanywhere.com/category/all/",
+      "https://apis.teknikinnavatsion.uz/category/all/",
       requestOptions
     )
       .then((response) => response.text())
@@ -32,7 +32,7 @@ function Home() {
       });
 
     fetch(
-      "https://teknikinnavatsion.pythonanywhere.com/korxona/biz_haqimizda/",
+      "https://apis.teknikinnavatsion.uz/korxona/biz_haqimizda/",
       requestOptions
     )
       .then((response) => response.text())
@@ -58,7 +58,7 @@ function Home() {
               <Link to={"/services/" + item.id} className="card">
                 <img
                   src={
-                    "https://teknikinnavatsion.pythonanywhere.com/" + item.file
+                    "https://apis.teknikinnavatsion.uz"+item.file
                   }
                   alt=""
                 />
