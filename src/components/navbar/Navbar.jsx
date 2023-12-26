@@ -17,14 +17,10 @@ function Navbar() {
       redirect: "follow",
     };
 
-    fetch(
-      "https://teknikinnavatsion.pythonanywhere.com/user/address/",
-      requestOptions
-    )
+    fetch("https://apis.teknikinnavatsion.uz/user/address/", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         setData(JSON.parse(result).data);
-        setLoader(false);
       })
       .catch((error) => {
         console.log("error", error);
